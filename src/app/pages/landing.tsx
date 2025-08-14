@@ -140,9 +140,9 @@ const Landing = () => {
                 {/* Motivational Quote */}
                 <div className="text-center mb-20 py-12 px-8 bg-white/60 rounded-3xl shadow-sm border border-pink-100">
                     <blockquote className="text-2xl md:text-3xl font-serif text-gray-700 italic mb-4">
-                        "A mother&apos;s joy begins when new life is stirring inside...
+                        A mother&apos;s joy begins when new life is stirring inside...
                         when a tiny heartbeat is heard for the very first time,
-                        and a playful kick reminds her that she is never alone."
+                        and a playful kick reminds her that she is never alone.
                     </blockquote>
                     <p className="text-pink-400 font-medium">- Anonymous</p>
                 </div>

@@ -40,7 +40,7 @@ const SectionCard = ({
     subtitle,
     children,
 }: {
-    icon: any;
+    icon: React.ComponentType<{ className?: string }>;
     title: string;
     subtitle?: string;
     children: React.ReactNode;
@@ -86,8 +86,17 @@ interface OnboardingPageProps {
     onComplete?: () => void;
 }
 
+// Define step structure
+interface Step {
+    key: string;
+    icon: React.ComponentType<{ className?: string }>;
+    title: string;
+    subtitle: string;
+    fields: FormField[];
+}
+
 export default function OnboardingPage({ onComplete }: OnboardingPageProps = {}) {
-    const steps = useMemo(
+    const steps: Step[] = useMemo(
         () =>
             [
                 {
@@ -170,7 +179,45 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
         []
     );
 
-    type FormState = Record<string, any>;
+    // Define proper types for form data
+    interface FormState {
+        // Basic Profile
+        name?: string;
+        weeks?: number;
+        firstPregnancy?: string;
+        pastComplications?: string;
+
+        // Medical & Health
+        conditions?: string[];
+        meds?: string;
+        recentSymptoms?: string;
+        checkupsOnTime?: string;
+
+        // Diet & Hydration
+        dietType?: string;
+        allergies?: string;
+        waterIntake?: number;
+        cravings?: string;
+
+        // Lifestyle
+        workType?: string;
+        sleepHours?: number;
+        exerciseFreq?: string;
+        stressLevel?: number;
+        stressors?: string[];
+
+        // Support & Communication
+        supportSystem?: string;
+        communicationPref?: string;
+
+        // Goals & Preferences
+        primaryGoals?: string[];
+        learningStyle?: string;
+
+        // Allow for additional fields
+        [key: string]: string | number | string[] | undefined;
+    }
+
     const [stepIndex, setStepIndex] = useState(0);
     const [form, setForm] = useState<FormState>({ conditions: [], stressors: [] });
     const [saving, setSaving] = useState(false);
@@ -178,7 +225,7 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
     const step = steps[stepIndex];
     const totalSteps = steps.length;
 
-    const handleChange = (name: string, value: any) => {
+    const handleChange = (name: string, value: string | number | string[]) => {
         setForm((prev) => ({ ...prev, [name]: value }));
     };
 
@@ -238,9 +285,9 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
                             {step.fields.map((f) => (
                                 <Field
                                     key={f.name}
-                                    field={f as any}
+                                    field={f as FormField}
                                     value={form[f.name]}
-                                    onChange={(v: any) => handleChange(f.name, v)}
+                                    onChange={(v) => handleChange(f.name, v)}
                                 />
                             ))}
                         </div>
@@ -295,14 +342,34 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
  * Form Field Components
  * -------------------------------------------------------*/
 
+// Define field types
+interface FieldBase {
+    name: string;
+    label: string;
+    type: string;
+    placeholder?: string;
+    options?: string[];
+}
+
+interface TextField extends FieldBase {
+    type: 'text' | 'number' | 'textarea';
+}
+
+interface SelectField extends FieldBase {
+    type: 'select' | 'radio' | 'multiselect';
+    options: string[];
+}
+
+type FormField = TextField | SelectField;
+
 function Field({
     field,
     value,
     onChange,
 }: {
-    field: any;
-    value: any;
-    onChange: (v: any) => void;
+    field: FormField;
+    value: string | number | string[] | undefined;
+    onChange: (v: string | number | string[]) => void;
 }) {
     const baseLabel = "mb-2 block text-sm font-medium text-rose-900";
     const baseInput =
@@ -362,8 +429,8 @@ function Field({
                                 type="button"
                                 onClick={() => onChange(opt)}
                                 className={`rounded-xl border px-3 py-2 text-sm shadow-sm transition ${value === opt
-                                        ? "border-rose-500 bg-rose-50 text-rose-800"
-                                        : "border-rose-200 bg-white text-rose-700 hover:bg-rose-50"
+                                    ? "border-rose-500 bg-rose-50 text-rose-800"
+                                    : "border-rose-200 bg-white text-rose-700 hover:bg-rose-50"
                                     }`}
                             >
                                 {opt}
@@ -411,8 +478,8 @@ function Field({
                                         else onChange([...value, opt]);
                                     }}
                                     className={`rounded-xl border px-3 py-2 text-sm shadow-sm transition ${selected
-                                            ? "border-rose-500 bg-rose-50 text-rose-800"
-                                            : "border-rose-200 bg-white text-rose-700 hover:bg-rose-50"
+                                        ? "border-rose-500 bg-rose-50 text-rose-800"
+                                        : "border-rose-200 bg-white text-rose-700 hover:bg-rose-50"
                                         }`}
                                 >
                                     {opt}
@@ -428,7 +495,7 @@ function Field({
     }
 }
 
-function Row({ label, value }: { label: string; value: any }) {
+function Row({ label, value }: { label: string; value: string | number | string[] | undefined }) {
     return (
         <div className="grid grid-cols-3 items-start gap-3 rounded-xl border border-rose-100 bg-white/70 p-3 text-sm">
             <div className="col-span-1 text-rose-700/80">{label}</div>
@@ -439,7 +506,7 @@ function Row({ label, value }: { label: string; value: any }) {
     );
 }
 
-function Review({ form }: { form: Record<string, any> }) {
+function Review({ form }: { form: FormState }) {
     return (
         <div className="space-y-4">
             <div className="rounded-xl bg-rose-50 p-4 text-sm text-rose-900">
