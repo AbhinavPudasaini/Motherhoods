@@ -86,6 +86,65 @@ interface OnboardingPageProps {
     onComplete?: () => void;
 }
 
+// Define proper types for form data
+interface FormState {
+    // Basic Profile
+    name?: string;
+    weeks?: number;
+    firstPregnancy?: string;
+    pastComplications?: string;
+
+    // Medical & Health
+    conditions?: string[];
+    meds?: string;
+    recentSymptoms?: string;
+    checkupsOnTime?: string;
+
+    // Diet & Hydration
+    dietType?: string;
+    allergies?: string;
+    waterIntake?: number;
+    cravings?: string;
+
+    // Lifestyle
+    workType?: string;
+    sleepHours?: number;
+    exerciseFreq?: string;
+    stressLevel?: number;
+    stressors?: string[];
+
+    // Support & Communication
+    supportSystem?: string;
+    communicationPref?: string;
+
+    // Goals & Preferences
+    primaryGoals?: string[];
+    learningStyle?: string;
+
+    // Allow for additional fields
+    [key: string]: string | number | string[] | undefined;
+}
+
+// Define field types
+interface FieldBase {
+    name: string;
+    label: string;
+    type: string;
+    placeholder?: string;
+    options?: string[];
+}
+
+interface TextField extends FieldBase {
+    type: 'text' | 'number' | 'textarea';
+}
+
+interface SelectField extends FieldBase {
+    type: 'select' | 'radio' | 'multiselect';
+    options: string[];
+}
+
+type FormField = TextField | SelectField;
+
 // Define step structure
 interface Step {
     key: string;
@@ -178,45 +237,6 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
             ] as const,
         []
     );
-
-    // Define proper types for form data
-    interface FormState {
-        // Basic Profile
-        name?: string;
-        weeks?: number;
-        firstPregnancy?: string;
-        pastComplications?: string;
-
-        // Medical & Health
-        conditions?: string[];
-        meds?: string;
-        recentSymptoms?: string;
-        checkupsOnTime?: string;
-
-        // Diet & Hydration
-        dietType?: string;
-        allergies?: string;
-        waterIntake?: number;
-        cravings?: string;
-
-        // Lifestyle
-        workType?: string;
-        sleepHours?: number;
-        exerciseFreq?: string;
-        stressLevel?: number;
-        stressors?: string[];
-
-        // Support & Communication
-        supportSystem?: string;
-        communicationPref?: string;
-
-        // Goals & Preferences
-        primaryGoals?: string[];
-        learningStyle?: string;
-
-        // Allow for additional fields
-        [key: string]: string | number | string[] | undefined;
-    }
 
     const [stepIndex, setStepIndex] = useState(0);
     const [form, setForm] = useState<FormState>({ conditions: [], stressors: [] });
@@ -341,26 +361,6 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
 /** ------------------------------------------------------
  * Form Field Components
  * -------------------------------------------------------*/
-
-// Define field types
-interface FieldBase {
-    name: string;
-    label: string;
-    type: string;
-    placeholder?: string;
-    options?: string[];
-}
-
-interface TextField extends FieldBase {
-    type: 'text' | 'number' | 'textarea';
-}
-
-interface SelectField extends FieldBase {
-    type: 'select' | 'radio' | 'multiselect';
-    options: string[];
-}
-
-type FormField = TextField | SelectField;
 
 function Field({
     field,
