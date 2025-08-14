@@ -12,7 +12,7 @@ const Story = () => {
             {
                 id: 1,
                 title: "My First Flutter",
-                snippet: "I'll never forget that magical moment when I first felt you move. It was like a gentle butterfly dancing inside me, reminding me that miracles do happen...",
+                snippet: "I&apos;ll never forget that magical moment when I first felt you move. It was like a gentle butterfly dancing inside me, reminding me that miracles do happen...",
                 image: "/cute.webp",
                 author: "Emma, 28",
                 week: "Week 16"
@@ -20,7 +20,7 @@ const Story = () => {
             {
                 id: 2,
                 title: "How I Overcame Morning Sickness",
-                snippet: "The first trimester was tough, but I learned that every wave of nausea was my body's way of protecting you. Here's what helped me through...",
+                snippet: "The first trimester was tough, but I learned that every wave of nausea was my body&apos;s way of protecting you. Here&apos;s what helped me through...",
                 image: "/preg.webp",
                 author: "Sarah, 32",
                 week: "Week 12"
@@ -46,7 +46,7 @@ const Story = () => {
             {
                 id: 5,
                 title: "Feeling You Kick",
-                snippet: "Your first real kick took my breath away. It was during a quiet evening, and suddenly I knew - you're really in there, my little fighter...",
+                snippet: "Your first real kick took my breath away. It was during a quiet evening, and suddenly I knew - you&apos;re really in there, my little fighter...",
                 image: "/imag2.webp",
                 author: "Jennifer, 29",
                 week: "Week 22"
@@ -54,7 +54,7 @@ const Story = () => {
             {
                 id: 6,
                 title: "Preparing Your Nursery",
-                snippet: "Painting your room in soft pastels, I imagined all the bedtime stories we'd share. Every brushstroke was filled with love and dreams...",
+                snippet: "Painting your room in soft pastels, I imagined all the bedtime stories we&apos;d share. Every brushstroke was filled with love and dreams...",
                 image: "/cute.webp",
                 author: "Rachel, 34",
                 week: "Week 24"
@@ -64,7 +64,7 @@ const Story = () => {
             {
                 id: 7,
                 title: "Almost There, Little One",
-                snippet: "As we approach the finish line, I'm filled with anticipation and wonder. Soon, I'll hold you in my arms instead of just in my heart...",
+                snippet: "As we approach the finish line, I&apos;m filled with anticipation and wonder. Soon, I&apos;ll hold you in my arms instead of just in my heart...",
                 image: "/preg.webp",
                 author: "Amanda, 31",
                 week: "Week 36"
@@ -72,7 +72,7 @@ const Story = () => {
             {
                 id: 8,
                 title: "The Final Countdown",
-                snippet: "Every day now feels like Christmas Eve. I'm ready to meet you, my sweet baby. The wait has been worth every moment of this journey...",
+                snippet: "Every day now feels like Christmas Eve. I&apos;m ready to meet you, my sweet baby. The wait has been worth every moment of this journey...",
                 image: "/image1.webp",
                 author: "Nicole, 27",
                 week: "Week 38"
@@ -89,9 +89,9 @@ const Story = () => {
     };
 
     const motivationalQuotes = {
-        first: "Every day brings new growth, new hope, and new reasons to smile. You're creating a miracle! 🌱",
-        second: "You're glowing with the beauty of new life. This is your time to shine and embrace the journey! 🌸",
-        third: "Almost there, mama! Your strength and love have brought you this far. Soon you'll meet your little miracle! 🌼"
+        first: "Every day brings new growth, new hope, and new reasons to smile. You&apos;re creating a miracle! 🌱",
+        second: "You&apos;re glowing with the beauty of new life. This is your time to shine and embrace the journey! 🌸",
+        third: "Almost there, mama! Your strength and love have brought you this far. Soon you&apos;ll meet your little miracle! 🌼"
     };
 
     const tabConfig = {
@@ -204,7 +204,7 @@ const Story = () => {
                 {/* Motivational Prompt Section */}
                 <div className="container mx-auto px-6 pb-16">
                     <div className="text-center mb-8">
-                        <h2 className="text-3xl font-serif text-gray-800 mb-2">Today's Motivation for You</h2>
+                        <h2 className="text-3xl font-serif text-gray-800 mb-2">Today&apos;s Motivation for You</h2>
                     </div>
                     
                     <div className="max-w-3xl mx-auto">

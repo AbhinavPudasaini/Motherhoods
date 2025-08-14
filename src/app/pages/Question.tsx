@@ -106,7 +106,7 @@ export default function OnboardingPage({ onComplete }: OnboardingPageProps = {})
                     key: "medical",
                     icon: HeartPulse,
                     title: "Medical & Health Background",
-                    subtitle: "Only share what you're comfortable with",
+                    subtitle: "Only share what you&apos;re comfortable with",
                     fields: [
                         { name: "conditions", label: "Existing conditions", type: "multiselect", options: ["None", "Diabetes", "High blood pressure", "Thyroid", "Anemia", "PCOS"] },
                         { name: "meds", label: "Current medicines/supplements", type: "textarea", placeholder: "e.g., Folic acid 400 mcg, Iron, Calcium" },

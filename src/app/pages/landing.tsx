@@ -5,7 +5,6 @@ import Image from "next/image"
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Autoplay, Pagination, Navigation } from "swiper/modules"
 import { CardCarousel } from "../../components/ui/card-carousel"
-import WrapButton from "../../components/ui/wrap-button"
 
 import "swiper/css"
 import "swiper/css/pagination"
@@ -135,13 +134,13 @@ const Landing = () => {
 
                 {/* CTA Button */}
                 <div className="text-center mb-20">
-                   <button style={{padding:"20px", backgroundColor:"pink", borderRadius:"12px", border:"1px solid black"}}>Let's start your Journey ➜</button>
+                    <button style={{ padding: "20px", backgroundColor: "pink", borderRadius: "12px", border: "1px solid black" }}>Let&apos;s start your Journey ➜</button>
                 </div>
 
                 {/* Motivational Quote */}
                 <div className="text-center mb-20 py-12 px-8 bg-white/60 rounded-3xl shadow-sm border border-pink-100">
                     <blockquote className="text-2xl md:text-3xl font-serif text-gray-700 italic mb-4">
-                        "A mother's joy begins when new life is stirring inside...
+                        "A mother&apos;s joy begins when new life is stirring inside...
                         when a tiny heartbeat is heard for the very first time,
                         and a playful kick reminds her that she is never alone."
                     </blockquote>

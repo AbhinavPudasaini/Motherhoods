@@ -159,7 +159,7 @@ const Nutrition = () => {
 
                         {/* Food Log */}
                         <div className="bg-white/70 backdrop-blur-sm rounded-3xl p-6 shadow-sm border border-pink-100">
-                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Today's Food Log</h2>
+                            <h2 className="text-2xl font-semibold text-gray-800 mb-4">Today&apos;s Food Log</h2>
                             <div className="space-y-4">
                                 {foodLog.map((food) => (
                                     <div key={food.id} className="flex items-center gap-4 p-4 bg-white/60 rounded-2xl border border-pink-100">
@@ -269,7 +269,7 @@ const Nutrition = () => {
                                     <Heart className="w-5 h-5 text-pink-400" />
                                 </div>
                                 <p className="text-sm text-gray-700 leading-relaxed">
-                                    You're doing great! Just a little more protein today will help your baby grow strong. 💪
+                                    You&apos;re doing great! Just a little more protein today will help your baby grow strong. 💪
                                 </p>
                             </div>
                         </div>

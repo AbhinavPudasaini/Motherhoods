@@ -64,7 +64,7 @@ const Dashboard = () => {
             ];
         } else if (currentWeek <= 28) {
             return [
-                { icon: "🥛", title: "Calcium Boost", content: "Increase calcium intake to 1000mg daily for baby's bone development." },
+                { icon: "🥛", title: "Calcium Boost", content: "Increase calcium intake to 1000mg daily for baby&apos;s bone development." },
                 { icon: "🚶‍♀️", title: "Stay Active", content: "Light exercise like walking helps with energy and mood." },
                 { icon: "👶", title: "Baby Movement", content: "Start feeling those first kicks! Track movement patterns." }
             ];
@@ -185,7 +185,7 @@ const Dashboard = () => {
                                 <span className="text-2xl">🌽</span>
                             </div>
                             <p className="text-lg text-gray-600 font-medium">
-                                You're doing an amazing job! Keep shining, mama. ✨
+                                You&apos;re doing an amazing job! Keep shining, mama. ✨
                             </p>
                         </div>
                     </div>
@@ -225,7 +225,7 @@ const Dashboard = () => {
                             <div className="grid md:grid-cols-3 gap-6">
                                 {/* Mood Tracker */}
                                 <div>
-                                    <h3 className="font-semibold text-gray-800 mb-3">How's your mood today?</h3>
+                                    <h3 className="font-semibold text-gray-800 mb-3">How&apos;s your mood today?</h3>
                                     <div className="flex gap-2">
                                         {moodEmojis.map((moodOption) => (
                                             <button
@@ -277,7 +277,7 @@ const Dashboard = () => {
                             </div>
 
                             <button className="w-full mt-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-xl font-medium transition-colors">
-                                Save Today's Check-in
+                                Save Today&apos;s Check-in
                             </button>
                         </div>
 
